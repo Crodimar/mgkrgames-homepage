@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Taxas do Tesouro Direto hoje: confira as taxas e preços atualizados dos títulos públicos (Selic, IPCA+, Prefixado) em tempo real." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="og:title" content="Tesouro Direto Hoje — Taxas Atualizadas" />
+  <meta property="og:description" content="Taxas e preços dos títulos do Tesouro Direto atualizados: Selic, IPCA+ e Prefixado." />
+  <meta property="og:type" content="website" />
+  <title>Tesouro Direto Hoje — Taxas Atualizadas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Tesouro Direto Hoje">
+        <span class="brand-mark">T</span>
+        <span class="brand-text">Tesouro Direto <strong>Hoje</strong></span>
+      </a>
+      <span class="pill">página em teste</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Taxas do Tesouro Direto hoje</h1>
+      <p class="subtitle">Consulte as taxas e preços atualizados dos títulos públicos federais.</p>
+      <div class="update-bar">
+        <span id="last-updated">Carregando dados...</span>
+        <button id="refresh-btn" type="button">Atualizar</button>
+      </div>
+    </section>
+
+    <section class="rates-section" aria-live="polite">
+      <div id="rates-status" class="status"></div>
+      <div class="table-wrap">
+        <table id="rates-table">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Vencimento</th>
+              <th>Taxa de compra</th>
+              <th>Taxa de venda</th>
+              <th>Preço unitário</th>
+            </tr>
+          </thead>
+          <tbody id="rates-body">
+            <tr><td colspan="5">Carregando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="explainer">
+      <h2>O que é a taxa do Tesouro Direto?</h2>
+      <p>
+        O Tesouro Direto é o programa do Tesouro Nacional para venda de títulos públicos federais
+        a pessoas físicas pela internet. Cada título tem uma taxa de rentabilidade (Selic, IPCA+ ou
+        prefixada) que muda diariamente de acordo com o mercado, além de uma taxa de custódia de
+        0,20% ao ano cobrada pela B3.
+      </p>
+      <h2>Como as taxas são atualizadas</h2>
+      <p>
+        Os preços e taxas negociados no Tesouro Direto são atualizados ao longo do dia, seguindo o
+        mercado secundário de títulos públicos.
+      </p>
+    </section>
+
+    <p class="disclaimer">
+      Esta página é um projeto independente e não é o site oficial do Tesouro Nacional nem da B3.
+      Para operações, acesse sempre
+      <a href="https://www.tesourodireto.com.br" target="_blank" rel="noopener noreferrer">tesourodireto.com.br</a>.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 — página de teste em trial.mgkrgames.com</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
