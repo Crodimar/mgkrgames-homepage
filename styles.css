@@ -647,9 +647,12 @@ img {
 }
 
 .game-card-art {
+  display: block;
   position: relative;
   min-height: 320px;
   overflow: hidden;
+  color: inherit;
+  text-decoration: none;
 }
 
 .smash-art {
