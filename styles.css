@@ -744,6 +744,13 @@ img {
     #11141c;
 }
 
+.sonic-art {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 199, 40, .45), transparent 22%),
+    radial-gradient(circle at 70% 60%, rgba(40, 120, 255, .55), transparent 24%),
+    linear-gradient(145deg, #101b2e 0%, #0b0e16 70%);
+}
+
 .coming-symbol {
   color: rgba(255,255,255,.07);
   font-family: "Space Grotesk", sans-serif;
