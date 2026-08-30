@@ -754,6 +754,17 @@ img {
     linear-gradient(145deg, #101b2e 0%, #0b0e16 70%);
 }
 
+.arena-fighters-card {
+  grid-column: 1 / -1;
+}
+
+.arena-fighters-art {
+  background:
+    radial-gradient(circle at 32% 30%, rgba(255, 76, 76, .5), transparent 22%),
+    radial-gradient(circle at 68% 64%, rgba(122, 60, 255, .5), transparent 24%),
+    linear-gradient(145deg, #1c0f1a 0%, #0c0810 70%);
+}
+
 .coming-symbol {
   color: rgba(255,255,255,.07);
   font-family: "Space Grotesk", sans-serif;
