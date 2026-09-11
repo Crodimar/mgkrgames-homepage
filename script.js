@@ -83,9 +83,9 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
 if (dockRow && !reduceMotion) {
   const DEADZONE = 0.15;
-  const MAX_SHIFT_X = 4.5;
-  const MAX_SHIFT_Y = 2.5;
-  const EASE = 0.08;
+  const MAX_SHIFT_X = 9;
+  const MAX_SHIFT_Y = 4.5;
+  const EASE = 0.1;
 
   let mouseX = 0;
   let mouseY = 0;
