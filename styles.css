@@ -108,14 +108,14 @@ img {
   display: grid;
   place-items: center;
   color: #0b0c10;
-  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  background: linear-gradient(135deg, #ffb13b, #ff5c35);
   clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 100%, 0 100%);
   font-size: 1.15rem;
   font-weight: 900;
 }
 
 .brand-text strong {
-  color: var(--accent);
+  color: #ff7a4d;
 }
 
 .main-nav {
@@ -184,6 +184,61 @@ img {
   transition: 0.25s ease;
 }
 
+.game-dock {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(4, 6, 12, 0.55);
+  backdrop-filter: blur(16px) saturate(140%);
+}
+
+.game-dock-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.game-dock-row::-webkit-scrollbar {
+  display: none;
+}
+
+.dock-icon {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s cubic-bezier(.2,.8,.3,1.3), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.dock-icon span {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.dock-icon:hover,
+.dock-icon:focus-visible {
+  transform: translateY(-4px) scale(1.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45), 0 0 22px rgba(79, 201, 255, 0.25);
+  outline: none;
+}
+
+.dock-smash { background: linear-gradient(150deg, #3a3f52, #14161d); }
+.dock-arena-fighters { background: radial-gradient(circle at 32% 30%, rgba(255,76,76,.55), transparent 60%), linear-gradient(150deg, #2a1420, #14090d); }
+.dock-dragonball { background: radial-gradient(circle at 30% 28%, rgba(255,140,30,.55), transparent 60%), linear-gradient(150deg, #2a2010, #14100a); }
+.dock-saiyan { background: radial-gradient(circle at 34% 30%, rgba(255,200,40,.55), transparent 60%), linear-gradient(150deg, #2a1e0a, #150e05); }
+.dock-crossover { background: radial-gradient(circle at 30% 30%, rgba(255,60,100,.5), transparent 60%), linear-gradient(150deg, #241a2c, #100a14); }
+.dock-sonic { background: radial-gradient(circle at 30% 30%, rgba(255,199,40,.4), transparent 55%), linear-gradient(150deg, #16223a, #0a0e16); }
+
 .hero {
   position: relative;
   min-height: 100svh;
@@ -191,7 +246,7 @@ img {
   align-items: center;
   isolation: isolate;
   overflow: hidden;
-  padding: 130px 0 80px;
+  padding: 196px 0 80px;
 }
 
 .hero-grid {
@@ -1148,6 +1203,17 @@ img {
     width: min(calc(100% - 28px), var(--max));
   }
 
+  .dock-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+
+  .game-dock-row {
+    gap: 10px;
+    padding: 10px 0;
+  }
+
   .menu-toggle {
     display: flex;
     z-index: 50;
@@ -1198,7 +1264,7 @@ img {
 
   .hero {
     min-height: auto;
-    padding-top: 125px;
+    padding-top: 178px;
   }
 
   .hero h1 {
