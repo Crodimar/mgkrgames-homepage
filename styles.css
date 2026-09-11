@@ -222,24 +222,7 @@ img {
   inset: -6%;
   background-size: cover;
   background-position: top center;
-  animation: dock-art-drift 6s ease-in-out infinite alternate;
-}
-
-.dock-tile:nth-child(2) .dock-tile-art { animation-delay: -1s; }
-.dock-tile:nth-child(3) .dock-tile-art { animation-delay: -2s; }
-.dock-tile:nth-child(4) .dock-tile-art { animation-delay: -3s; }
-.dock-tile:nth-child(5) .dock-tile-art { animation-delay: -4s; }
-.dock-tile:nth-child(6) .dock-tile-art { animation-delay: -5s; }
-
-@keyframes dock-art-drift {
-  0% { transform: scale(1.05) translate(-2%, 0%); }
-  100% { transform: scale(1.28) translate(2%, -3%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dock-tile-art {
-    animation: none;
-  }
+  transform: scale(1.14) translate(var(--parallax-x, 0%), var(--parallax-y, 0%));
 }
 
 .dock-tile::before {
@@ -284,12 +267,6 @@ img {
   box-shadow: 0 24px 46px rgba(0, 0, 0, 0.5), 0 0 34px rgba(79, 201, 255, 0.3);
   z-index: 5;
   outline: none;
-}
-
-.dock-tile:hover .dock-tile-art,
-.dock-tile:focus-visible .dock-tile-art {
-  animation-play-state: paused;
-  transform: scale(1.14);
 }
 
 .dock-smash .dock-tile-art,
@@ -789,42 +766,6 @@ img {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .09em;
-}
-
-.mini-logo {
-  position: absolute;
-  z-index: 2;
-  inset: 50% 0 auto;
-  transform: translateY(-50%);
-  text-align: center;
-  font-family: "Space Grotesk", sans-serif;
-  line-height: .75;
-}
-
-.mini-logo small,
-.mini-logo strong,
-.mini-logo em {
-  display: block;
-}
-
-.mini-logo small {
-  margin-bottom: 13px;
-  letter-spacing: .35em;
-  color: #d8dbe3;
-  font-size: .65rem;
-}
-
-.mini-logo strong {
-  font-size: clamp(3.9rem, 7vw, 6rem);
-  letter-spacing: -.08em;
-  font-style: italic;
-}
-
-.mini-logo em {
-  margin-top: 8px;
-  color: var(--accent);
-  font-size: clamp(1.8rem, 3.7vw, 3rem);
-  font-weight: 800;
 }
 
 .upcoming-art {

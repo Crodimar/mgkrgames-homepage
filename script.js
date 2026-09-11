@@ -77,3 +77,68 @@ if (heroPreview && dockTiles.length) {
 
   activeTile = dockTiles[0];
 }
+
+const dockRow = document.querySelector('.game-dock-row');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (dockRow && !reduceMotion) {
+  const DEADZONE = 0.15;
+  const MAX_SHIFT_X = 4.5;
+  const MAX_SHIFT_Y = 2.5;
+  const EASE = 0.08;
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let gamepadIndex = null;
+  let currentX = 0;
+  let currentY = 0;
+
+  window.addEventListener(
+    'mousemove',
+    (event) => {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+    },
+    { passive: true }
+  );
+
+  window.addEventListener('gamepadconnected', (event) => {
+    gamepadIndex = event.gamepad.index;
+  });
+
+  window.addEventListener('gamepaddisconnected', (event) => {
+    if (gamepadIndex === event.gamepad.index) gamepadIndex = null;
+  });
+
+  function readGamepadAxis() {
+    if (gamepadIndex === null || !navigator.getGamepads) return null;
+    const pad = navigator.getGamepads()[gamepadIndex];
+    if (!pad) return null;
+    const axisX = pad.axes[0] || 0;
+    const axisY = pad.axes[1] || 0;
+    const dpadLeft = pad.buttons[14] && pad.buttons[14].pressed;
+    const dpadRight = pad.buttons[15] && pad.buttons[15].pressed;
+    let x = Math.abs(axisX) > DEADZONE ? axisX : 0;
+    if (dpadLeft) x = -1;
+    if (dpadRight) x = 1;
+    const y = Math.abs(axisY) > DEADZONE ? axisY : 0;
+    if (x === 0 && y === 0 && !dpadLeft && !dpadRight) return null;
+    return { x, y };
+  }
+
+  function tick() {
+    const gamepadInput = readGamepadAxis();
+    const targetX = gamepadInput ? gamepadInput.x : mouseX;
+    const targetY = gamepadInput ? gamepadInput.y : mouseY * 0.5;
+
+    currentX += (targetX - currentX) * EASE;
+    currentY += (targetY - currentY) * EASE;
+
+    dockRow.style.setProperty('--parallax-x', `${(currentX * MAX_SHIFT_X).toFixed(2)}%`);
+    dockRow.style.setProperty('--parallax-y', `${(currentY * MAX_SHIFT_Y).toFixed(2)}%`);
+
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+}
