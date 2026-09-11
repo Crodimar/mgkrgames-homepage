@@ -712,114 +712,6 @@ img {
   box-shadow: 0 26px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(79, 201, 255, 0.12);
 }
 
-.game-card-art {
-  display: block;
-  position: relative;
-  min-height: 320px;
-  overflow: hidden;
-  color: inherit;
-  text-decoration: none;
-}
-
-.smash-art {
-  background:
-    radial-gradient(circle at 64% 45%, rgba(255, 157, 57, .55), transparent 18%),
-    radial-gradient(circle at 36% 65%, rgba(116, 71, 255, .52), transparent 20%),
-    linear-gradient(145deg, #212634 0%, #11141c 70%);
-}
-
-.smash-art::before,
-.smash-art::after {
-  content: "";
-  position: absolute;
-  width: 240px;
-  height: 420px;
-  bottom: -150px;
-  border-radius: 44%;
-  filter: blur(1px);
-}
-
-.smash-art::before {
-  left: 9%;
-  transform: rotate(28deg);
-  background: linear-gradient(180deg, #eeeeef, #505a70);
-}
-
-.smash-art::after {
-  right: 8%;
-  transform: rotate(-29deg);
-  background: linear-gradient(180deg, #ff9851, #7c2232);
-}
-
-.card-status {
-  position: absolute;
-  z-index: 3;
-  top: 20px;
-  left: 20px;
-  padding: 7px 10px;
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 999px;
-  background: rgba(0,0,0,.28);
-  backdrop-filter: blur(10px);
-  color: #e5e8ee;
-  font-size: 0.65rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .09em;
-}
-
-.upcoming-art {
-  display: grid;
-  place-items: center;
-  background:
-    linear-gradient(145deg, rgba(116, 71, 255, .28), transparent 50%),
-    repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 1px, transparent 1px 16px),
-    #11141c;
-}
-
-.sonic-art {
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255, 199, 40, .45), transparent 22%),
-    radial-gradient(circle at 70% 60%, rgba(40, 120, 255, .55), transparent 24%),
-    linear-gradient(145deg, #101b2e 0%, #0b0e16 70%);
-}
-
-.arena-fighters-art {
-  background:
-    radial-gradient(circle at 32% 30%, rgba(255, 76, 76, .5), transparent 22%),
-    radial-gradient(circle at 68% 64%, rgba(122, 60, 255, .5), transparent 24%),
-    linear-gradient(145deg, #1c0f1a 0%, #0c0810 70%);
-}
-
-.dragonball-art {
-  background:
-    radial-gradient(circle at 30% 28%, rgba(255, 140, 30, .5), transparent 22%),
-    radial-gradient(circle at 70% 65%, rgba(30, 100, 255, .45), transparent 24%),
-    linear-gradient(145deg, #1a1408 0%, #0b0f18 70%);
-}
-
-.saiyan-art {
-  background:
-    radial-gradient(circle at 34% 30%, rgba(255, 200, 40, .5), transparent 22%),
-    radial-gradient(circle at 66% 66%, rgba(255, 90, 40, .45), transparent 24%),
-    linear-gradient(145deg, #1c1206 0%, #0c0805 70%);
-}
-
-.crossover-art {
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255, 60, 100, .45), transparent 22%),
-    radial-gradient(circle at 70% 64%, rgba(60, 140, 255, .45), transparent 24%),
-    linear-gradient(145deg, #14101c 0%, #08080f 70%);
-}
-
-.coming-symbol {
-  color: rgba(255,255,255,.07);
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 11rem;
-  font-weight: 700;
-  letter-spacing: -.1em;
-}
-
 .game-card-content {
   padding: 28px;
 }
@@ -1318,15 +1210,7 @@ img {
     width: 100%;
   }
 
-  .game-card-art {
-    min-height: 260px;
-  }
-
   .game-card-content {
     padding: 23px;
-  }
-
-  .coming-symbol {
-    font-size: 8rem;
   }
 }
