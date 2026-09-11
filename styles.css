@@ -222,18 +222,18 @@ img {
   inset: -6%;
   background-size: cover;
   background-position: top center;
-  animation: dock-art-drift 16s ease-in-out infinite alternate;
+  animation: dock-art-drift 6s ease-in-out infinite alternate;
 }
 
-.dock-tile:nth-child(2) .dock-tile-art { animation-delay: -2.6s; }
-.dock-tile:nth-child(3) .dock-tile-art { animation-delay: -5.2s; }
-.dock-tile:nth-child(4) .dock-tile-art { animation-delay: -7.8s; }
-.dock-tile:nth-child(5) .dock-tile-art { animation-delay: -10.4s; }
-.dock-tile:nth-child(6) .dock-tile-art { animation-delay: -13s; }
+.dock-tile:nth-child(2) .dock-tile-art { animation-delay: -1s; }
+.dock-tile:nth-child(3) .dock-tile-art { animation-delay: -2s; }
+.dock-tile:nth-child(4) .dock-tile-art { animation-delay: -3s; }
+.dock-tile:nth-child(5) .dock-tile-art { animation-delay: -4s; }
+.dock-tile:nth-child(6) .dock-tile-art { animation-delay: -5s; }
 
 @keyframes dock-art-drift {
-  0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.12) translate(-1.5%, -1.5%); }
+  0% { transform: scale(1.05) translate(-2%, 0%); }
+  100% { transform: scale(1.28) translate(2%, -3%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -292,7 +292,8 @@ img {
   transform: scale(1.14);
 }
 
-.dock-smash .dock-tile-art {
+.dock-smash .dock-tile-art,
+.art-smash {
   background:
     radial-gradient(circle at 26% 112%, rgba(255,255,255,.24), transparent 42%),
     radial-gradient(circle at 74% -8%, rgba(79,201,255,.4), transparent 46%),
@@ -300,20 +301,20 @@ img {
     radial-gradient(circle at 50% 50%, rgba(255,255,255,.06), transparent 60%),
     linear-gradient(150deg, #3d4356, #14161d 65%);
 }
-.dock-arena-fighters .dock-tile-art {
+.dock-arena-fighters .dock-tile-art,
+.art-arena-fighters {
   background-image:
     linear-gradient(0deg, rgba(20,9,13,.15), rgba(20,9,13,.05)),
     url('assets/dock/arena-fighters.jpg');
 }
-.dock-dragonball .dock-tile-art {
-  background:
-    radial-gradient(circle at 26% 112%, rgba(255,140,30,.6), transparent 46%),
-    radial-gradient(circle at 78% -10%, rgba(30,100,255,.45), transparent 48%),
-    radial-gradient(circle at 55% 45%, rgba(255,210,120,.2), transparent 55%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,.05), transparent 60%),
-    linear-gradient(150deg, #2a2010, #14100a 70%);
+.dock-dragonball .dock-tile-art,
+.art-dragonball {
+  background-image:
+    linear-gradient(0deg, rgba(20,14,9,.12), rgba(20,14,9,.02)),
+    url('assets/dock/dragonball.jpg');
 }
-.dock-saiyan .dock-tile-art {
+.dock-saiyan .dock-tile-art,
+.art-saiyan {
   background:
     radial-gradient(circle at 30% 112%, rgba(255,200,40,.6), transparent 46%),
     radial-gradient(circle at 78% -10%, rgba(255,90,40,.45), transparent 48%),
@@ -321,21 +322,17 @@ img {
     radial-gradient(circle at 50% 50%, rgba(255,255,255,.05), transparent 60%),
     linear-gradient(150deg, #2a1e0a, #150e05 70%);
 }
-.dock-crossover .dock-tile-art {
-  background:
-    radial-gradient(circle at 26% 112%, rgba(255,60,100,.55), transparent 46%),
-    radial-gradient(circle at 78% -10%, rgba(60,140,255,.45), transparent 48%),
-    radial-gradient(circle at 55% 45%, rgba(255,150,200,.16), transparent 55%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,.05), transparent 60%),
-    linear-gradient(150deg, #241a2c, #100a14 70%);
+.dock-crossover .dock-tile-art,
+.art-crossover {
+  background-image:
+    linear-gradient(0deg, rgba(16,10,20,.12), rgba(16,10,20,.02)),
+    url('assets/dock/crossover.jpg');
 }
-.dock-sonic .dock-tile-art {
-  background:
-    radial-gradient(circle at 26% 112%, rgba(255,199,40,.45), transparent 46%),
-    radial-gradient(circle at 78% -10%, rgba(40,120,255,.55), transparent 48%),
-    radial-gradient(circle at 55% 45%, rgba(150,220,255,.2), transparent 55%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,.05), transparent 60%),
-    linear-gradient(150deg, #16223a, #0a0e16 70%);
+.dock-sonic .dock-tile-art,
+.art-sonic {
+  background-image:
+    linear-gradient(0deg, rgba(10,14,22,.12), rgba(10,14,22,.02)),
+    url('assets/dock/sonic.jpg');
 }
 
 .hero {
@@ -535,45 +532,54 @@ img {
   perspective: 1100px;
 }
 
-.arena-card {
+.hero-preview {
   min-height: 590px;
   position: relative;
   overflow: hidden;
   padding: 28px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 32px;
-  background:
-    radial-gradient(circle at 50% 40%, rgba(79, 201, 255, 0.32), transparent 27%),
-    linear-gradient(150deg, rgba(116, 87, 255, 0.24), transparent 40%),
-    linear-gradient(145deg, #171c28, #0a0d15 72%);
+  background: linear-gradient(145deg, #171c28, #0a0d15 72%);
   box-shadow: var(--shadow);
   transform: rotateY(-4deg) rotateX(2deg);
 }
 
-.arena-card::before,
-.arena-card::after {
+.hero-preview-art {
+  position: absolute;
+  inset: -6%;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.32s ease, transform 8s ease-out;
+  transform: scale(1.05);
+}
+
+.hero-preview.is-switching .hero-preview-art {
+  opacity: 0;
+}
+
+.hero-preview::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   pointer-events: none;
-}
-
-.arena-card::before {
-  opacity: 0.55;
   background:
-    linear-gradient(120deg, transparent 0 44%, rgba(255, 255, 255, 0.06) 44.3% 44.8%, transparent 45%),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 7px);
-  mix-blend-mode: overlay;
+    linear-gradient(0deg, rgba(6,7,11,.92) 0%, rgba(6,7,11,.35) 46%, rgba(6,7,11,.12) 68%, transparent 82%),
+    linear-gradient(120deg, transparent 0 44%, rgba(255, 255, 255, 0.06) 44.3% 44.8%, transparent 45%);
 }
 
-.arena-card::after {
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: inherit;
+.hero-preview::after {
+  content: "";
+  position: absolute;
   inset: 10px;
+  z-index: 1;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
 }
 
-.arena-topline,
-.arena-bottom {
+.hero-preview-topline {
   position: relative;
   z-index: 3;
   display: flex;
@@ -605,149 +611,44 @@ img {
   box-shadow: 0 0 12px #4cdf8f;
 }
 
-.arena-logo {
-  position: relative;
-  z-index: 3;
-  margin-top: 44px;
-  text-align: center;
-  font-family: "Space Grotesk", sans-serif;
-  line-height: 0.78;
-}
-
-.arena-small {
-  display: block;
-  margin-bottom: 15px;
-  color: #b5bdca;
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  font-family: "Inter", sans-serif;
-  font-size: 0.62rem;
-  font-weight: 800;
-}
-
-.arena-logo strong,
-.arena-logo em {
-  display: block;
-  font-style: italic;
-  letter-spacing: -0.07em;
-}
-
-.arena-logo strong {
-  font-size: clamp(4.4rem, 7.5vw, 6.4rem);
-  color: #fff;
-  text-shadow: 0 10px 35px rgba(0, 0, 0, .45);
-}
-
-.arena-logo em {
-  margin-top: 5px;
-  font-size: clamp(2.3rem, 4.2vw, 3.5rem);
-  color: var(--accent);
-}
-
-.fighters {
-  position: relative;
-  z-index: 2;
-  height: 230px;
-  margin: 22px auto 0;
-}
-
-.fighter {
-  position: absolute;
-  bottom: 12px;
-  width: 145px;
-  height: 205px;
-  filter: drop-shadow(0 24px 25px rgba(0, 0, 0, .55));
-}
-
-.fighter span {
-  display: block;
-  position: absolute;
-  background: linear-gradient(145deg, #f6f7fa, #60697b);
-}
-
-.fighter .head {
-  width: 48px;
-  height: 52px;
-  border-radius: 44% 46% 40% 42%;
-  top: 0;
-}
-
-.fighter .body {
-  width: 76px;
-  height: 100px;
-  top: 45px;
-  border-radius: 35px 35px 16px 18px;
-}
-
-.fighter .arm {
-  width: 36px;
-  height: 110px;
-  top: 48px;
-  border-radius: 25px;
-}
-
-.fighter .leg {
-  width: 42px;
-  height: 88px;
-  top: 122px;
-  border-radius: 12px 12px 20px 20px;
-}
-
-.fighter-left {
-  left: 8%;
-  transform: rotate(-5deg);
-}
-
-.fighter-left .head { left: 62px; }
-.fighter-left .body { left: 44px; }
-.fighter-left .arm { left: 12px; transform: rotate(48deg); transform-origin: top; }
-.fighter-left .leg { left: 44px; transform: rotate(8deg); }
-
-.fighter-right {
-  right: 8%;
-  transform: rotate(5deg) scaleX(-1);
-}
-
-.fighter-right .head { left: 62px; background: linear-gradient(145deg, #ffcb76, #b8452c); }
-.fighter-right .body { left: 44px; background: linear-gradient(145deg, #ff7445, #6c1f2b); }
-.fighter-right .arm { left: 12px; transform: rotate(48deg); transform-origin: top; background: linear-gradient(145deg, #ff8c55, #8a2c31); }
-.fighter-right .leg { left: 44px; transform: rotate(8deg); background: linear-gradient(145deg, #ff7445, #6c1f2b); }
-
-.impact {
-  position: absolute;
-  inset: 70px 0 auto;
-  margin: auto;
-  width: 76px;
-  height: 76px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: #121318;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.35rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, var(--accent-2), var(--accent));
-  box-shadow: 0 0 55px rgba(79, 201, 255, 0.5);
-  transform: rotate(-8deg);
-}
-
-.arena-bottom {
+.hero-preview-body {
   position: absolute;
   left: 28px;
   right: 28px;
   bottom: 28px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-}
-
-.arena-bottom > div {
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  transition: opacity 0.32s ease, transform 0.32s ease;
 }
 
-.arena-bottom a {
+.hero-preview.is-switching .hero-preview-body {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.hero-preview-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  letter-spacing: -0.02em;
   color: #fff;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, .5);
+}
+
+.hero-preview-tag {
+  color: #cfd4e0;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.hero-preview-link {
+  margin-top: 10px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.86rem;
+  width: fit-content;
 }
 
 .floating-chip {
@@ -1405,13 +1306,13 @@ img {
     flex-wrap: wrap;
   }
 
-  .arena-card {
-    min-height: 520px;
+  .hero-preview {
+    min-height: 420px;
     padding: 20px;
     transform: none;
   }
 
-  .arena-bottom {
+  .hero-preview-body {
     left: 20px;
     right: 20px;
     bottom: 20px;
@@ -1420,11 +1321,6 @@ img {
   .floating-chip,
   .hero-scroll {
     display: none;
-  }
-
-  .fighters {
-    transform: scale(.86);
-    transform-origin: center;
   }
 
   .section {
@@ -1479,22 +1375,6 @@ img {
 
   .button {
     width: 100%;
-  }
-
-  .arena-logo strong {
-    font-size: 4rem;
-  }
-
-  .arena-logo em {
-    font-size: 2rem;
-  }
-
-  .fighter-left {
-    left: -2%;
-  }
-
-  .fighter-right {
-    right: -2%;
   }
 
   .game-card-art {

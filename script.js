@@ -41,3 +41,39 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 document.getElementById('year').textContent = new Date().getFullYear();
+
+const dockTiles = document.querySelectorAll('.dock-tile');
+const heroPreview = document.getElementById('heroPreview');
+const heroPreviewArt = document.getElementById('heroPreviewArt');
+const heroPreviewTitle = document.getElementById('heroPreviewTitle');
+const heroPreviewTag = document.getElementById('heroPreviewTag');
+const heroPreviewLink = document.getElementById('heroPreviewLink');
+
+if (heroPreview && dockTiles.length) {
+  let activeTile = null;
+
+  const applyPreview = (tile) => {
+    heroPreviewArt.className = `hero-preview-art ${tile.dataset.previewArt}`;
+    heroPreviewTitle.textContent = tile.dataset.previewTitle;
+    heroPreviewTag.textContent = tile.dataset.previewTag;
+    heroPreviewLink.href = tile.href;
+    heroPreviewLink.setAttribute('aria-label', `Open ${tile.dataset.previewTitle}`);
+  };
+
+  const showPreview = (tile) => {
+    if (!tile || !tile.dataset.previewArt || tile === activeTile) return;
+    activeTile = tile;
+    heroPreview.classList.add('is-switching');
+    window.setTimeout(() => {
+      applyPreview(tile);
+      heroPreview.classList.remove('is-switching');
+    }, 180);
+  };
+
+  dockTiles.forEach((tile) => {
+    tile.addEventListener('mouseenter', () => showPreview(tile));
+    tile.addEventListener('focus', () => showPreview(tile));
+  });
+
+  activeTile = dockTiles[0];
+}

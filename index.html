@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://mgkrgames.com" />
   <title>MGKR Games — Made by Matheus</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
   <div class="site-noise" aria-hidden="true"></div>
@@ -38,27 +38,39 @@
 
     <div class="game-dock" aria-label="Jump to a game">
       <div class="container game-dock-row">
-        <a class="dock-tile dock-smash" href="https://smash.mgkrgames.com">
+        <a class="dock-tile dock-smash" href="https://smash.mgkrgames.com"
+           data-preview-art="art-smash" data-preview-title="Smash Arena"
+           data-preview-tag="Fast matches · Local &amp; online PvP">
           <span class="dock-tile-art"></span>
           <span class="dock-tile-title">Smash Arena</span>
         </a>
-        <a class="dock-tile dock-arena-fighters" href="https://arenafighters.mgkrgames.com">
+        <a class="dock-tile dock-arena-fighters" href="https://arenafighters.mgkrgames.com"
+           data-preview-art="art-arena-fighters" data-preview-title="Arena Fighters"
+           data-preview-tag="Original characters · Online crossplay">
           <span class="dock-tile-art"></span>
           <span class="dock-tile-title">Arena Fighters</span>
         </a>
-        <a class="dock-tile dock-dragonball" href="https://dragonballarena.mgkrgames.com">
+        <a class="dock-tile dock-dragonball" href="https://dragonballarena.mgkrgames.com"
+           data-preview-art="art-dragonball" data-preview-title="Dragon Ball Arena"
+           data-preview-tag="Power up · Battle across the sagas">
           <span class="dock-tile-art"></span>
           <span class="dock-tile-title">Dragon Ball Arena</span>
         </a>
-        <a class="dock-tile dock-saiyan" href="https://saiyanclash.mgkrgames.com">
+        <a class="dock-tile dock-saiyan" href="https://saiyanclash.mgkrgames.com"
+           data-preview-art="art-saiyan" data-preview-title="Saiyan Clash"
+           data-preview-tag="Go Super Saiyan · Fast 1v1s">
           <span class="dock-tile-art"></span>
           <span class="dock-tile-title">Saiyan Clash</span>
         </a>
-        <a class="dock-tile dock-crossover" href="https://smashcrossover.mgkrgames.com">
+        <a class="dock-tile dock-crossover" href="https://smashcrossover.mgkrgames.com"
+           data-preview-art="art-crossover" data-preview-title="Smash Crossover"
+           data-preview-tag="Every hero, one arena">
           <span class="dock-tile-art"></span>
           <span class="dock-tile-title">Smash Crossover</span>
         </a>
-        <a class="dock-tile dock-sonic" href="https://sonic.mgkrgames.com">
+        <a class="dock-tile dock-sonic" href="https://sonic.mgkrgames.com"
+           data-preview-art="art-sonic" data-preview-title="Sonic Adventure 3"
+           data-preview-tag="Gotta go fast · Classic platforming">
           <span class="dock-tile-art"></span>
           <span class="dock-tile-title">Sonic Adventure 3</span>
         </a>
@@ -114,37 +126,16 @@
         </div>
 
         <div class="hero-visual reveal reveal-delay">
-          <div class="arena-card">
-            <div class="arena-topline">
-              <span>Featured game</span>
+          <div class="hero-preview" id="heroPreview">
+            <span class="hero-preview-art art-smash" id="heroPreviewArt" aria-hidden="true"></span>
+            <div class="hero-preview-topline">
+              <span>Selected game</span>
               <span class="live-pill"><i></i> Live now</span>
             </div>
-            <div class="arena-logo">
-              <span class="arena-small">MGKR presents</span>
-              <strong>SMASH</strong>
-              <em>ARENA</em>
-            </div>
-            <div class="fighters" aria-hidden="true">
-              <div class="fighter fighter-left">
-                <span class="head"></span>
-                <span class="body"></span>
-                <span class="arm"></span>
-                <span class="leg"></span>
-              </div>
-              <div class="impact">VS</div>
-              <div class="fighter fighter-right">
-                <span class="head"></span>
-                <span class="body"></span>
-                <span class="arm"></span>
-                <span class="leg"></span>
-              </div>
-            </div>
-            <div class="arena-bottom">
-              <div>
-                <span>Fast matches</span>
-                <span>Local & online PvP</span>
-              </div>
-              <a href="https://smash.mgkrgames.com" aria-label="Open Smash Arena">Play now →</a>
+            <div class="hero-preview-body">
+              <strong class="hero-preview-title" id="heroPreviewTitle">Smash Arena</strong>
+              <span class="hero-preview-tag" id="heroPreviewTag">Fast matches · Local &amp; online PvP</span>
+              <a class="hero-preview-link" id="heroPreviewLink" href="https://smash.mgkrgames.com">Play now →</a>
             </div>
           </div>
           <div class="floating-chip chip-one">2 players</div>
@@ -427,6 +418,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=9"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>
