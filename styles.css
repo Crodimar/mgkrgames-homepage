@@ -2,19 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-  --bg: #080a0f;
-  --surface: #10131b;
-  --surface-2: #151a24;
-  --text: #f5f7ff;
-  --muted: #9ea6b7;
-  --line: rgba(255, 255, 255, 0.10);
-  --accent: #ff5c35;
-  --accent-2: #ffb13b;
-  --purple: #7447ff;
+  --bg: #04050a;
+  --surface: #0d121c;
+  --surface-2: #121927;
+  --text: #f3f6ff;
+  --muted: #8b96ac;
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #4fc9ff;
+  --accent-2: #b3a1ff;
+  --purple: #7457ff;
   --max: 1180px;
   --radius-lg: 28px;
   --radius-md: 20px;
-  --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  --glass: rgba(255, 255, 255, 0.045);
+  --glass-strong: rgba(255, 255, 255, 0.07);
 }
 
 * {
@@ -28,7 +30,8 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 30% -10%, rgba(116, 71, 255, 0.16), transparent 34rem),
+    radial-gradient(circle at 78% 4%, rgba(79, 201, 255, 0.1), transparent 30rem),
+    radial-gradient(circle at 22% -10%, rgba(116, 87, 255, 0.17), transparent 34rem),
     var(--bg);
   color: var(--text);
   font-family: "Inter", sans-serif;
@@ -77,9 +80,9 @@ img {
 }
 
 .site-header.scrolled {
-  background: rgba(8, 10, 15, 0.76);
+  background: rgba(4, 6, 12, 0.72);
   border-color: var(--line);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(20px) saturate(140%);
 }
 
 .nav-wrap {
@@ -152,9 +155,13 @@ img {
   transition: 0.2s ease;
 }
 
+.nav-cta {
+  backdrop-filter: blur(10px);
+}
+
 .nav-cta:hover {
-  border-color: rgba(255, 92, 53, 0.55);
-  background: rgba(255, 92, 53, 0.10);
+  border-color: rgba(79, 201, 255, 0.55);
+  background: rgba(79, 201, 255, 0.10);
 }
 
 .menu-toggle {
@@ -219,7 +226,7 @@ img {
   height: 470px;
   right: -150px;
   top: 10%;
-  background: radial-gradient(circle, rgba(255, 92, 53, 0.22), transparent 66%);
+  background: radial-gradient(circle, rgba(79, 201, 255, 0.24), transparent 66%);
 }
 
 .hero-orb-two {
@@ -227,7 +234,7 @@ img {
   height: 390px;
   left: 32%;
   bottom: -200px;
-  background: radial-gradient(circle, rgba(116, 71, 255, 0.20), transparent 68%);
+  background: radial-gradient(circle, rgba(116, 87, 255, 0.22), transparent 68%);
 }
 
 .hero-layout {
@@ -308,14 +315,15 @@ img {
 }
 
 .button-primary {
-  color: #090b10;
+  color: #06080f;
   background: linear-gradient(135deg, var(--accent-2), var(--accent));
-  box-shadow: 0 16px 40px rgba(255, 92, 53, 0.22);
+  box-shadow: 0 16px 40px rgba(79, 201, 255, 0.28);
 }
 
 .button-secondary {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.035);
+  background: var(--glass);
+  backdrop-filter: blur(12px);
 }
 
 .button-secondary:hover {
@@ -358,9 +366,9 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 32px;
   background:
-    radial-gradient(circle at 50% 40%, rgba(255, 105, 46, 0.36), transparent 27%),
-    linear-gradient(150deg, rgba(116, 71, 255, 0.22), transparent 40%),
-    linear-gradient(145deg, #1a1d28, #0d0f16 72%);
+    radial-gradient(circle at 50% 40%, rgba(79, 201, 255, 0.32), transparent 27%),
+    linear-gradient(150deg, rgba(116, 87, 255, 0.24), transparent 40%),
+    linear-gradient(145deg, #171c28, #0a0d15 72%);
   box-shadow: var(--shadow);
   transform: rotateY(-4deg) rotateX(2deg);
 }
@@ -542,7 +550,7 @@ img {
   font-size: 1.35rem;
   font-weight: 900;
   background: linear-gradient(135deg, var(--accent-2), var(--accent));
-  box-shadow: 0 0 55px rgba(255, 92, 53, 0.45);
+  box-shadow: 0 0 55px rgba(79, 201, 255, 0.5);
   transform: rotate(-8deg);
 }
 
@@ -637,13 +645,16 @@ img {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: var(--surface);
-  transition: transform .25s ease, border-color .25s ease;
+  background: linear-gradient(180deg, var(--glass-strong), var(--glass)), var(--surface);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
 .game-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(255, 255, 255, 0.20);
+  border-color: rgba(79, 201, 255, 0.35);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(79, 201, 255, 0.12);
 }
 
 .game-card-art {
@@ -867,8 +878,8 @@ img {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background:
-    radial-gradient(circle at 80% 10%, rgba(255, 92, 53, .10), transparent 28rem),
-    #0b0e14;
+    radial-gradient(circle at 80% 10%, rgba(79, 201, 255, .10), transparent 28rem),
+    #080a10;
 }
 
 .about-layout {
@@ -970,7 +981,7 @@ img {
 
 .update-item:hover {
   padding-left: 20px;
-  background: linear-gradient(90deg, rgba(255,92,53,.055), transparent);
+  background: linear-gradient(90deg, rgba(79,201,255,.06), transparent);
 }
 
 .update-date {
@@ -1017,10 +1028,11 @@ img {
   border: 1px solid rgba(255,255,255,.13);
   border-radius: 34px;
   background:
-    radial-gradient(circle at 85% 0%, rgba(255, 92, 53, .22), transparent 24rem),
-    radial-gradient(circle at 5% 100%, rgba(116, 71, 255, .18), transparent 26rem),
-    #11141c;
+    radial-gradient(circle at 85% 0%, rgba(79, 201, 255, .22), transparent 24rem),
+    radial-gradient(circle at 5% 100%, rgba(116, 87, 255, .2), transparent 26rem),
+    #0c0f18;
   box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
 }
 
 .cta-glow {
