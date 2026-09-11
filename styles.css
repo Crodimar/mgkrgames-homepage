@@ -192,10 +192,11 @@ img {
 
 .game-dock-row {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 0;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 20px 0;
   overflow-x: auto;
+  overflow-y: visible;
   scrollbar-width: none;
 }
 
@@ -203,41 +204,57 @@ img {
   display: none;
 }
 
-.dock-icon {
+.dock-tile {
   flex: 0 0 auto;
-  width: 46px;
-  height: 46px;
-  display: grid;
-  place-items: center;
-  border-radius: 13px;
+  position: relative;
+  width: 220px;
+  height: 128px;
+  border-radius: 14px;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-  transition: transform 0.2s cubic-bezier(.2,.8,.3,1.3), box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+  transition: transform 0.28s cubic-bezier(.2,.8,.2,1), box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
-.dock-icon span {
+.dock-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.18) 58%, transparent 78%),
+    linear-gradient(115deg, transparent 40%, rgba(255,255,255,.07) 46%, transparent 52%);
+}
+
+.dock-tile-title {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 11px;
+  z-index: 2;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.03em;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  font-size: 0.94rem;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
-.dock-icon:hover,
-.dock-icon:focus-visible {
-  transform: translateY(-4px) scale(1.08);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45), 0 0 22px rgba(79, 201, 255, 0.25);
+.dock-tile:hover,
+.dock-tile:focus-visible {
+  transform: translateY(-10px) scale(1.07);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 24px 46px rgba(0, 0, 0, 0.5), 0 0 34px rgba(79, 201, 255, 0.3);
+  z-index: 5;
   outline: none;
 }
 
-.dock-smash { background: linear-gradient(150deg, #3a3f52, #14161d); }
-.dock-arena-fighters { background: radial-gradient(circle at 32% 30%, rgba(255,76,76,.55), transparent 60%), linear-gradient(150deg, #2a1420, #14090d); }
-.dock-dragonball { background: radial-gradient(circle at 30% 28%, rgba(255,140,30,.55), transparent 60%), linear-gradient(150deg, #2a2010, #14100a); }
-.dock-saiyan { background: radial-gradient(circle at 34% 30%, rgba(255,200,40,.55), transparent 60%), linear-gradient(150deg, #2a1e0a, #150e05); }
-.dock-crossover { background: radial-gradient(circle at 30% 30%, rgba(255,60,100,.5), transparent 60%), linear-gradient(150deg, #241a2c, #100a14); }
-.dock-sonic { background: radial-gradient(circle at 30% 30%, rgba(255,199,40,.4), transparent 55%), linear-gradient(150deg, #16223a, #0a0e16); }
+.dock-smash { background: radial-gradient(circle at 70% 20%, rgba(255,255,255,.16), transparent 55%), linear-gradient(150deg, #3a3f52, #14161d); }
+.dock-arena-fighters { background: radial-gradient(circle at 32% 25%, rgba(255,76,76,.55), transparent 60%), radial-gradient(circle at 75% 70%, rgba(122,60,255,.35), transparent 55%), linear-gradient(150deg, #2a1420, #14090d); }
+.dock-dragonball { background: radial-gradient(circle at 30% 25%, rgba(255,140,30,.55), transparent 60%), radial-gradient(circle at 75% 75%, rgba(30,100,255,.3), transparent 55%), linear-gradient(150deg, #2a2010, #14100a); }
+.dock-saiyan { background: radial-gradient(circle at 34% 25%, rgba(255,200,40,.55), transparent 60%), radial-gradient(circle at 75% 75%, rgba(255,90,40,.32), transparent 55%), linear-gradient(150deg, #2a1e0a, #150e05); }
+.dock-crossover { background: radial-gradient(circle at 30% 25%, rgba(255,60,100,.5), transparent 60%), radial-gradient(circle at 75% 75%, rgba(60,140,255,.32), transparent 55%), linear-gradient(150deg, #241a2c, #100a14); }
+.dock-sonic { background: radial-gradient(circle at 30% 25%, rgba(255,199,40,.4), transparent 55%), radial-gradient(circle at 75% 75%, rgba(40,120,255,.4), transparent 55%), linear-gradient(150deg, #16223a, #0a0e16); }
 
 .hero {
   position: relative;
@@ -246,7 +263,7 @@ img {
   align-items: center;
   isolation: isolate;
   overflow: hidden;
-  padding: 196px 0 80px;
+  padding: 284px 0 80px;
 }
 
 .hero-grid {
@@ -1203,15 +1220,22 @@ img {
     width: min(calc(100% - 28px), var(--max));
   }
 
-  .dock-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 11px;
+  .dock-tile {
+    width: 168px;
+    height: 98px;
+    border-radius: 12px;
+  }
+
+  .dock-tile-title {
+    font-size: 0.8rem;
+    left: 11px;
+    right: 11px;
+    bottom: 8px;
   }
 
   .game-dock-row {
-    gap: 10px;
-    padding: 10px 0;
+    gap: 12px;
+    padding: 16px 0;
   }
 
   .menu-toggle {
@@ -1264,7 +1288,7 @@ img {
 
   .hero {
     min-height: auto;
-    padding-top: 178px;
+    padding-top: 232px;
   }
 
   .hero h1 {
