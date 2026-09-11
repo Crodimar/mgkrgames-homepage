@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://mgkrgames.com" />
   <title>MGKR Games — Made by Matheus</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
   <div class="site-noise" aria-hidden="true"></div>
@@ -38,7 +38,7 @@
 
     <div class="game-dock" aria-label="Jump to a game">
       <div class="container game-dock-row">
-        <a class="dock-tile dock-smash" href="https://smash.mgkrgames.com">
+        <a class="dock-tile dock-featured dock-smash" href="https://smash.mgkrgames.com">
           <span class="dock-tile-title">Smash Arena</span>
         </a>
         <a class="dock-tile dock-arena-fighters" href="https://arenafighters.mgkrgames.com">
@@ -65,6 +65,24 @@
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
       <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+      <svg class="hero-ribbon" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4fc9ff" stop-opacity="0" />
+            <stop offset="30%" stop-color="#4fc9ff" stop-opacity=".55" />
+            <stop offset="52%" stop-color="#dfe6ff" stop-opacity=".65" />
+            <stop offset="72%" stop-color="#b3a1ff" stop-opacity=".5" />
+            <stop offset="100%" stop-color="#7457ff" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="ribbonGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7457ff" stop-opacity="0" />
+            <stop offset="45%" stop-color="#4fc9ff" stop-opacity=".28" />
+            <stop offset="100%" stop-color="#4fc9ff" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M -200 620 C 250 460, 550 720, 950 380 S 1550 120, 1900 260" stroke="url(#ribbonGrad)" stroke-width="140" fill="none" stroke-linecap="round" />
+        <path d="M -200 720 C 300 600, 600 820, 1000 520 S 1600 260, 1950 380" stroke="url(#ribbonGrad2)" stroke-width="220" fill="none" stroke-linecap="round" />
+      </svg>
 
       <div class="container hero-layout">
         <div class="hero-copy reveal">
@@ -403,6 +421,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>

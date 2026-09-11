@@ -211,9 +211,15 @@ img {
   height: 128px;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
-  transition: transform 0.28s cubic-bezier(.2,.8,.2,1), box-shadow 0.28s ease, border-color 0.28s ease;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 0.28s cubic-bezier(.2,.8,.2,1), box-shadow 0.28s ease, border-color 0.28s ease, width 0.28s ease, height 0.28s ease;
+  align-self: flex-end;
+}
+
+.dock-tile.dock-featured {
+  width: 268px;
+  height: 156px;
 }
 
 .dock-tile::before {
@@ -221,8 +227,18 @@ img {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(0deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.18) 58%, transparent 78%),
-    linear-gradient(115deg, transparent 40%, rgba(255,255,255,.07) 46%, transparent 52%);
+    linear-gradient(0deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.22) 56%, transparent 76%),
+    linear-gradient(115deg, transparent 38%, rgba(255,255,255,.09) 45%, transparent 53%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 3px);
+}
+
+.dock-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 24px 30px -20px rgba(255, 255, 255, 0.14);
+  pointer-events: none;
 }
 
 .dock-tile-title {
@@ -240,6 +256,10 @@ img {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
+.dock-featured .dock-tile-title {
+  font-size: 1.08rem;
+}
+
 .dock-tile:hover,
 .dock-tile:focus-visible {
   transform: translateY(-10px) scale(1.07);
@@ -249,12 +269,48 @@ img {
   outline: none;
 }
 
-.dock-smash { background: radial-gradient(circle at 70% 20%, rgba(255,255,255,.16), transparent 55%), linear-gradient(150deg, #3a3f52, #14161d); }
-.dock-arena-fighters { background: radial-gradient(circle at 32% 25%, rgba(255,76,76,.55), transparent 60%), radial-gradient(circle at 75% 70%, rgba(122,60,255,.35), transparent 55%), linear-gradient(150deg, #2a1420, #14090d); }
-.dock-dragonball { background: radial-gradient(circle at 30% 25%, rgba(255,140,30,.55), transparent 60%), radial-gradient(circle at 75% 75%, rgba(30,100,255,.3), transparent 55%), linear-gradient(150deg, #2a2010, #14100a); }
-.dock-saiyan { background: radial-gradient(circle at 34% 25%, rgba(255,200,40,.55), transparent 60%), radial-gradient(circle at 75% 75%, rgba(255,90,40,.32), transparent 55%), linear-gradient(150deg, #2a1e0a, #150e05); }
-.dock-crossover { background: radial-gradient(circle at 30% 25%, rgba(255,60,100,.5), transparent 60%), radial-gradient(circle at 75% 75%, rgba(60,140,255,.32), transparent 55%), linear-gradient(150deg, #241a2c, #100a14); }
-.dock-sonic { background: radial-gradient(circle at 30% 25%, rgba(255,199,40,.4), transparent 55%), radial-gradient(circle at 75% 75%, rgba(40,120,255,.4), transparent 55%), linear-gradient(150deg, #16223a, #0a0e16); }
+.dock-smash {
+  background:
+    radial-gradient(circle at 26% 112%, rgba(255,255,255,.22), transparent 42%),
+    radial-gradient(circle at 74% -8%, rgba(79,201,255,.35), transparent 46%),
+    radial-gradient(circle at 70% 105%, rgba(116,87,255,.3), transparent 50%),
+    linear-gradient(150deg, #3d4356, #14161d 65%);
+}
+.dock-arena-fighters {
+  background:
+    radial-gradient(circle at 28% 110%, rgba(255,76,76,.5), transparent 46%),
+    radial-gradient(circle at 78% -10%, rgba(122,60,255,.42), transparent 48%),
+    radial-gradient(circle at 60% 40%, rgba(255,150,80,.18), transparent 55%),
+    linear-gradient(150deg, #2a1420, #14090d 70%);
+}
+.dock-dragonball {
+  background:
+    radial-gradient(circle at 26% 112%, rgba(255,140,30,.55), transparent 46%),
+    radial-gradient(circle at 78% -10%, rgba(30,100,255,.4), transparent 48%),
+    radial-gradient(circle at 55% 45%, rgba(255,210,120,.16), transparent 55%),
+    linear-gradient(150deg, #2a2010, #14100a 70%);
+}
+.dock-saiyan {
+  background:
+    radial-gradient(circle at 30% 112%, rgba(255,200,40,.55), transparent 46%),
+    radial-gradient(circle at 78% -10%, rgba(255,90,40,.4), transparent 48%),
+    radial-gradient(circle at 55% 45%, rgba(255,240,180,.15), transparent 55%),
+    linear-gradient(150deg, #2a1e0a, #150e05 70%);
+}
+.dock-crossover {
+  background:
+    radial-gradient(circle at 26% 112%, rgba(255,60,100,.5), transparent 46%),
+    radial-gradient(circle at 78% -10%, rgba(60,140,255,.4), transparent 48%),
+    radial-gradient(circle at 55% 45%, rgba(255,150,200,.14), transparent 55%),
+    linear-gradient(150deg, #241a2c, #100a14 70%);
+}
+.dock-sonic {
+  background:
+    radial-gradient(circle at 26% 112%, rgba(255,199,40,.4), transparent 46%),
+    radial-gradient(circle at 78% -10%, rgba(40,120,255,.5), transparent 48%),
+    radial-gradient(circle at 55% 45%, rgba(150,220,255,.16), transparent 55%),
+    linear-gradient(150deg, #16223a, #0a0e16 70%);
+}
 
 .hero {
   position: relative;
@@ -263,7 +319,7 @@ img {
   align-items: center;
   isolation: isolate;
   overflow: hidden;
-  padding: 284px 0 80px;
+  padding: 312px 0 80px;
 }
 
 .hero-grid {
@@ -307,6 +363,29 @@ img {
   left: 32%;
   bottom: -200px;
   background: radial-gradient(circle, rgba(116, 87, 255, 0.22), transparent 68%);
+}
+
+.hero-ribbon {
+  position: absolute;
+  inset: -10% -10%;
+  width: 120%;
+  height: 120%;
+  z-index: -3;
+  filter: blur(2px);
+  opacity: 0.85;
+  mix-blend-mode: screen;
+  animation: ribbon-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes ribbon-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-1.5%, 1%, 0) scale(1.03); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ribbon {
+    animation: none;
+  }
 }
 
 .hero-layout {
